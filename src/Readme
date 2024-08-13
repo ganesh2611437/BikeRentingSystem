@@ -1,0 +1,161 @@
+Bike Rental System Documentation
+Project Overview
+The Bike Rental System is a Java-based application designed to manage the rental process of bikes. It allows users to rent and return bikes, and provides functionalities to list available bikes and manage customer and rental records.
+
+Features
+Bike Management:
+
+Add new bikes to the system.
+View available bikes for rent.
+Customer Management:
+
+Add new customers to the system.
+Track customer details.
+Rental Management:
+
+Rent a bike to a customer.
+Return a bike and update its availability status.
+Calculate the total rental price based on rental days.
+User Interface:
+
+Console-based menu for user interactions.
+Options to rent a bike, return a bike, or exit the system.
+Classes and Methods
+1. Bike Class
+Represents a bike with attributes and methods to manage bike details and rental status.
+
+Attributes:
+
+private String bikeId: Unique identifier for the bike.
+private String brand: Brand of the bike.
+private String model: Model of the bike.
+private String bikeColor: Color of the bike.
+private double basePricePerDay: Base rental price per day (in dollars).
+private boolean isAvailable: Status indicating if the bike is available for rent.
+Constructor:
+
+java
+Copy code
+public Bike(String bikeId, String brand, String model, String bikeColor, double basePricePerDay)
+Methods:
+
+public String getBikeId()
+public String getBrand()
+public String getModel()
+public String getBikeColor()
+public double calculatePrice(int rentalDays): Calculates the rental price based on the number of rental days.
+public boolean isAvailable()
+public void rent()
+public void returnBike()
+2. Customer Class
+Represents a customer with attributes and methods to manage customer details.
+
+Attributes:
+
+private String customerId: Unique identifier for the customer.
+private String name: Name of the customer.
+Constructor:
+
+java
+Copy code
+public Customer(String customerId, String name)
+Methods:
+
+public String getCustomerId()
+public String getName()
+3. Rental Class
+Represents a rental transaction involving a bike and a customer.
+
+Attributes:
+
+private Bike bike: Bike being rented.
+private Customer customer: Customer who rents the bike.
+private int days: Number of rental days.
+Constructor:
+
+java
+Copy code
+public Rental(Bike bike, Customer customer, int days)
+Methods:
+
+public Bike getBike()
+public Customer getCustomer()
+public int getDays()
+4. BikeRentalSystem Class
+Manages bike rentals, including adding bikes and customers, renting and returning bikes, and handling user interactions.
+
+Attributes:
+
+private List<Bike> bikes: List of bikes available in the system.
+private List<Customer> customers: List of customers in the system.
+private List<Rental> rentals: List of rental transactions.
+Constructor:
+
+java
+Copy code
+public BikeRentalSystem()
+Methods:
+
+public void addBike(Bike bike): Adds a bike to the system.
+public void addCustomer(Customer customer): Adds a customer to the system.
+public void rentBike(Bike bike, Customer customer, int days): Rents a bike to a customer if available.
+public void returnBike(Bike bike): Returns a bike and updates its availability.
+public void menu(): Provides a console-based menu for user interactions.
+5. Main Class
+Initializes the BikeRentalSystem, adds sample bikes, and starts the user interaction menu.
+
+Methods:
+public static void main(String[] args): Entry point of the application.
+Usage
+Running the System:
+
+Compile and run the Main class. The console-based menu will appear.
+Menu Options:
+
+Rent a Bike:
+Enter your name.
+Select a bike from the list of available bikes.
+Specify the number of rental days.
+Confirm the rental.
+Return a Bike:
+Enter the bike ID you want to return.
+Exit:
+Exit the application.
+Example:
+
+plaintext
+Copy code
+===== Bike Rental System =====
+1. Rent a Bike
+2. Return a Bike
+3. Exit
+Enter your choice: 1
+
+== Rent a Bike ==
+
+Enter your name: John Doe
+
+Available Bikes:
+B001 - Yamaha YZF-R3 (Blue)
+B002 - Kawasaki Ninja 300 (Green)
+B003 - Ducati Monster 821 (Red)
+
+Enter the bike ID you want to rent: B001
+Enter the number of days for rental: 3
+
+== Rental Information ==
+
+Customer ID: CUS1
+Customer Name: John Doe
+Bike: Yamaha YZF-R3
+Rental Days: 3
+Total Price: $150.00
+
+Confirm rental (Y/N): Y
+Bike rented successfully.
+Design and Implementation
+OOP Principles: The project uses object-oriented programming principles such as encapsulation (private attributes and public getters/setters), inheritance (not used in this simple implementation but could be extended), and association (relationships between classes).
+Data Storage: Data is stored in memory using lists (e.g., ArrayList). For persistence beyond the runtime, integration with a database would be required.
+User Interface: A console-based menu provides a simple user interface for interaction. This can be replaced with a graphical user interface (GUI) for improved usability.
+Conclusion
+The Bike Rental System is a straightforward application that demonstrates basic concepts of object-oriented programming, user input handling, and simple business logic. It is designed to be easily extensible for additional features or improvements.
